@@ -1,5 +1,5 @@
 import dlt
-## from airflow.models import Variable
+from airflow.models import Variable
 from dlt.sources.rest_api import rest_api_source
 from dlt.sources.rest_api.typing import RESTAPIConfig
 
@@ -7,8 +7,7 @@ config: RESTAPIConfig = {
     "client": {
         "base_url": "https://api.github.com",
         "auth": {
-            # "token": Variable.get("github_access_token"),
-            "token": dlt.secrets["sources.github.access_token"]
+            "token": Variable.get("github_access_token"),
         },
         "headers": {
             "Accept": "application/vnd.github+json",

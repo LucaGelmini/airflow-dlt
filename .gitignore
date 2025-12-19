@@ -17,4 +17,7 @@ airflow/
 standalone_admin_password.txt
 
 # DLT
-.dlt
+.dlt/secrets.toml
+
+# AI stuff
+.claude

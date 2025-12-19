@@ -21,6 +21,10 @@ RUN uv sync
 # Copy the rest of the application
 COPY . .
 
+# Copy and set up entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Set environment variables
 ENV AIRFLOW_HOME=/app/airflow
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
@@ -41,5 +45,5 @@ RUN uv run airflow users create \
 # Expose Airflow webserver port
 EXPOSE 8080
 
-# Start Airflow standalone
-CMD ["uv", "run", "airflow", "standalone"]
+# Use entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]

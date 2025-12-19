@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12, <3.13"
 dependencies = [
     "apache-airflow==2.11.0",
-    "dlt[filesystem]>=1.20.0",
+    "dlt[cli,filesystem,parquet]>=1.20.0",
+    "pyarrow>=22.0.0",
     "s3fs>=2023.1.0",
 ]
